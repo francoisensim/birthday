@@ -1,3 +1,5 @@
+
+
 <?php
 
 $host="e-srv-lamp.univ-lemans.fr";
@@ -9,38 +11,60 @@ $database ="e2304514";
 $password ="Khg566wk";
 
 $connection = new mysqli($host,$user,$password,$database);
-if ($connection->connect_error){
 
-    echo("error");
+
+
+
+if($connection->connect_error){
+
+    die("connection failed:".$connection->connec_error);
+
 }
 
-    $sql ="SELECT * FROM 'bithday-guests'
-    $result = $conn->query($sql);
+$seletDataquery="SELECT * FROM `bithday-guests`;
 
-// Vérifier si le résultat de la requête est non vide
+
+
+$result = $connection->query($seletDataquery);
+
+
+
+
 if ($result->num_rows > 0) {
-    // Récupérer le nombre total d'invités
-    $row = $result->fetch_assoc();
-    $totalGuests = $row['bithday-guests'];
-    echo $totalGuests;
+
+    $totalGuests = 0;
+
+
+
+    while ($row = $result->fetch_assoc()) {
+
+       
+
+        echo "text: " . $row["text"] . " - nombre: " . $row["nombre"] . "<br>";
+
+
+
+        
+
+        $totalGuests += $row["nombre"];
+
+    }
+
+
+
+    
+
+    echo "<p>Le nombre total d'invités est : " . $totalGuests . "</p>";
+
 } else {
-    echo "0";
-}
 
-if ($connection->query ($sql) ==TRUE){
-
-    echo"NEW SUPERHERO CREATED SUCCESSFULLY";
-
-                                     }
-
-   else{
-
-   echo "error: " . $sql . "<br>" . $connection->error;
-        }
-
-
+    echo "Aucun résultat trouvé dans la base de données.";
 
 }
-$connection->close();
+
+
+
+$connection->close();  
 
 ?>
+
