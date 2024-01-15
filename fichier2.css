@@ -1,0 +1,46 @@
+.nom {
+
+    
+       
+        height: 100px;
+        background: linear-gradient(-45deg, #788cff, #b4c8ff);
+        text-align: center;
+        font-size: 50px;
+
+      
+}
+.date {
+
+    font-size: 45px;
+    margin-top: 45px;
+}
+.heure {
+    font-size: 40px;
+    margin-top: 50px;
+}
+.theme, .lien {
+         font-size: 45px;
+         margin-top: 60px;
+
+}
+#button {
+    margin-top: 70px;
+}
+#info {
+    display: none;
+}
+#rap{
+
+    text-align: center;
+    border: #788cff 5px solid;
+    
+}
+#nombre  {
+
+    height: 45px;
+}
+  #text{
+
+    height: 45px;
+    
+}
